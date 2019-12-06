@@ -13,11 +13,5 @@ export default {
     render: {
         resourceHints: false,
     },
-    modules: [
-        {
-            handler: require(
-                '../',
-            ),
-        },
-    ],
+    buildModules: [ '../lib/module' ],
 };
