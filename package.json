@@ -34,6 +34,7 @@
     },
     "scripts": {
         "dev": "nuxt -o example",
+        "generate": "nuxt generate example",
         "eslint": "eslint --ext .js,.vue .",
         "eslint-fix": "eslint --fix --ext .js,.vue .",
         "lint": "yarn eslint",
