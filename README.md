@@ -1,235 +1,61 @@
-# Vue Cursor Fx
+# @luxdamore/nuxt-apis-to-file
 
-[DEMO](https://luxdamore.github.io/vue-cursor-fx)
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![Circle CI][circle-ci-src]][circle-ci-href]
+[![Codecov][codecov-src]][codecov-href]
+[![License][license-src]][license-href]
 
-An animated custom cursor effects for interactive elements like navigation - w/ VueJS - SSR Compatible _(but not with touchscreen devices)_
+> Nuxt module to merge and transform API calls into a file
 
-## Installation
+[📖 **Release Notes**](./CHANGELOG.md)
 
-This package is available on npm.
+## Setup
 
-```bash
-
-    # Deps
-    npm install --save @luxdamore/vue-cursor-fx
-
-```
-
-### Usage
-
-#### As a component
-
-```js
-
-    // Component
-    import { CursorFx } from '@luxdamore/vue-cursor-fx';
-    import '@luxdamore/vue-cursor-fx/dist/CursorFx.css';
-
-    // Install
-    Vue.component(
-        CursorFx.name,
-        CursorFx
-    );
-
-    // Or in a .vue file
-    export default {
-        components: {
-            'cursor-fx': CursorFx,
-        },
-    };
-
-```
-
-#### As a plugin
-
-```js
-
-    // Plugin
-    import CursorFx from '@luxdamore/vue-cursor-fx';
-    import '@luxdamore/vue-cursor-fx/dist/CursorFx.css';
-
-    // Install
-    Vue.use(
-        CursorFx
-    );
-
-```
-
-#### Browser's way
-
-```html
-
-    <!doctype html>
-    <html>
-        <head>
-
-            <!-- CursorFx style -->
-
-                <!-- Old way -->
-                <link rel="stylesheet" href="https://unpkg.com/@luxdamore/vue-cursor-fx@latest/dist/CursorFx.css" />
-                <!-- end old way -->
-
-                <!-- New way -->
-                <link rel="preload" href="https://unpkg.com/@luxdamore/vue-cursor-fx@latest/dist/CursorFx.css" as="style" onload="this.rel='stylesheet'" />
-                <link rel="preload" href="https://unpkg.com/@luxdamore/vue-cursor-fx@latest/dist/CursorFx.umd.min.js" as="script" />
-                <!-- end new way -->
-
-            <!-- end CursorFx style -->
-
-        </head>
-        <body>
-
-            <!--
-                Others script (ex. VueJs) and html.
-            -->
-
-            <!-- CursorFx script -->
-                <script src="https://unpkg.com/@luxdamore/vue-cursor-fx@latest/dist/CursorFx.umd.min.js"></script>
-            <!-- end CursorFx script -->
-
-        </body>
-    </html>
-
-```
-
-#### Markup
-
-_Use it just one time in the main file of your project or in every views where you want it._
-
-```html
-
-    <button
-        type="button"
-        class="button"
-        data-cursor-hover
-    >
-        Add `data-cursor-hover` to an every html elements that you want to see the cursor bigger on hover
-    </button>
-
-    <button
-        type="button"
-        class="button"
-        data-cursor-hidden
-    >
-        Add `data-cursor-hidden` to an every html elements that you want to hide the cursor on hover
-    </button>
-
-    <cursor-fx />
-
-```
-
-### Options
-
-#### Slots
+1. Add `@luxdamore/nuxt-apis-to-file` dependency to your project
 
 ```bash
-
-    # Available
-    slot="default"  # Add some content in the middle of the cursor
-
+yarn add @luxdamore/nuxt-apis-to-file # or npm install @luxdamore/nuxt-apis-to-file
 ```
 
-#### Props
-
-| Attribute | Type | Default | Required | About |
-|:--------------------:|--------------------|:-------:|:--------:|-------------------------------------|
-| config | Object | {} | false | The default options applied to cursor, see below the `BASE_CONFIG` |
-| color | String | #333333 | false | Color for the cursor |
-| color-hover | String | #333333 | false | Color, on hover, for the cursor |
-| outside-size | String | null | false | The size of outer circle |
-| inside-size | String | null | false | The size of inner dot |
-| shape | String | null | false | Only available shapes are 'circle' and 'square' |
-| delay | String, Number | 60 | false | Activate cursor after x seconds |
-| force-custom-slot | Boolean | false | false | Show or hide the internal default slot |
-| hide-outside | Boolean | false | false | Hide outer circle |
-| hide-inside | Boolean | false | false | Hide inner dot |
+2. Add `@luxdamore/nuxt-apis-to-file` to the `modules` section of `nuxt.config.js`
 
 ```js
+{
+  modules: [
+    // Simple usage
+    '@luxdamore/nuxt-apis-to-file',
 
-    const BASE_CONFIG = {
-        lerps: {
-            dot: 1,
-            circle: 0.18,
-            custom: 0.23,
-        },
-        scale: {
-            ratio: 0.18,
-            min: 0.5,
-            max: 1,
-        },
-        opacity: 0.1,
-    };
-
+    // With options
+    ['@luxdamore/nuxt-apis-to-file', { /* module options */ }]
+  ]
+}
 ```
 
-#### Integrations
+## Development
 
-##### VueRouter
+1. Clone this repository
+2. Install dependencies using `yarn install` or `npm install`
+3. Start development server using `npm run dev`
 
-```html
+## License
 
-    <!-- App.vue -->
-    <template>
-        <div>
+[MIT License](./LICENSE)
 
-            <router-view></router-view>
+Copyright (c) Luca Iaconelli <lucabelli@msn.com>
 
-            <cursor-fx />
+<!-- Badges -->
+[npm-version-src]: https://img.shields.io/npm/v/@luxdamore/nuxt-apis-to-file/latest.svg?style=flat-square
+[npm-version-href]: https://npmjs.com/package/@luxdamore/nuxt-apis-to-file
 
-        </div>
-    </template>
+[npm-downloads-src]: https://img.shields.io/npm/dt/@luxdamore/nuxt-apis-to-file.svg?style=flat-square
+[npm-downloads-href]: https://npmjs.com/package/@luxdamore/nuxt-apis-to-file
 
-```
+[circle-ci-src]: https://img.shields.io/circleci/project/github/LuXDAmore/nuxt-apis-to-file.svg?style=flat-square
+[circle-ci-href]: https://circleci.com/gh/LuXDAmore/nuxt-apis-to-file
 
-##### NuxtJs
+[codecov-src]: https://img.shields.io/codecov/c/github/LuXDAmore/nuxt-apis-to-file.svg?style=flat-square
+[codecov-href]: https://codecov.io/gh/LuXDAmore/nuxt-apis-to-file
 
-- For the entire website: place the component in the desired layouts (ex. layouts/default.vue);
-- For some pages only: place the component in the desired pages (ex. pages/index.vue).
-
-```html
-
-    <!-- layout/default.vue -->
-    <template>
-        <div>
-
-            <nuxt />
-
-            <cursor-fx />
-
-        </div>
-    </template>
-
-```
-
-## Issues
-
-Please make sure to read the [Issue Reporting Checklist](https://github.com/LuXDAmore/vue-cursor-fx/blob/master/.github/ISSUE_TEMPLATE/bug_report.md) before opening an issue. Issues not conforming to the guidelines may be closed immediately.
-
-## Contribution
-
-Please make sure to read the [Contributing Guide](https://github.com/LuXDAmore/vue-cursor-fx/blob/master/.github/ISSUE_TEMPLATE/feature_request.md) before making a pull request.
-
-## Changelog
-
-Details changes for each release are documented in the [release notes](https://github.com/LuXDAmore/vue-cursor-fx/blob/master/CHANGELOG.md).
-
-### License
-
-[MIT](http://opensource.org/licenses/MIT) // Copyright (©) 2019-present [Luca Iaconelli](https://lucaiaconelli.it)
-
-#### Are you feeling generous today?  :)
-
-You can donate me a beer, we can be good friends
-__[Paypal](https://www.paypal.me/luxdamore) // [Patreon](https://www.patreon.com/luxdamore)__
-
-_It's always a good day to be magnanimous - cit_
-
-#### Inspired by
-
-[CustomCursors by Tympanus](https://tympanus.net/Tutorials/CustomCursors/index3.html)
-
-#### Hire me
-
-[![Otechie](https://api.otechie.com/consultancy/luca-iaconelli/badge.svg)](https://otechie.com/luca-iaconelli)
-
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/luxdamore)
+[license-src]: https://img.shields.io/npm/l/@luxdamore/nuxt-apis-to-file.svg?style=flat-square
+[license-href]: https://npmjs.com/package/@luxdamore/nuxt-apis-to-file

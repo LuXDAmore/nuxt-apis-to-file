@@ -1,8 +1,19 @@
-import { resolve } from 'path';
-import axios from 'axios';
-import fse from 'fs-extra';
-import logger from './logger';
-import * as meta from './package.json';
+const { resolve } = require(
+        'path'
+    )
+    , axios = require(
+        'axios'
+    )
+    , fse = require(
+        'fs-extra'
+    )
+    , logger = require(
+        './logger'
+    )
+    , meta = require(
+        './package.json'
+    )
+;
 
 const moduleName = 'apis-to-file'
     , config = {
@@ -20,11 +31,10 @@ const moduleName = 'apis-to-file'
     }
 ;
 
-
 // [GitHub](https://github.com/nuxt/nuxt.js/issues/123#issuecomment-272246782)
 // Gitignore
 
-export default async function apisToFile(
+module.exports = async function apisToFile(
     moduleOptions
 ) {
 
@@ -33,9 +43,9 @@ export default async function apisToFile(
         hideErrorsInConsole: ! this.options.dev,
         hideGenericMessagesInConsole: ! this.options.dev,
         axios: this.options.axios || {},
+        ... moduleOptions,
         ... ( this.options[ moduleName ] || {} ),
 		... ( this.options.apisToFile || {} ),
-        ... moduleOptions,
     };
 
     if( ! options.requests || ! options.requests.length ) {
@@ -195,4 +205,4 @@ export default async function apisToFile(
 
 }
 
-export { meta };
+module.exports.meta = meta;

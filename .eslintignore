@@ -1,5 +1,8 @@
-dist/
-docs/
+# Common
+node_modules
+dist
+.nuxt
+coverage
 
-bower_components/
-node_modules/
+# Plugin
+lib/plugin.js

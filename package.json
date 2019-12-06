@@ -1,10 +1,10 @@
 {
     "name": "@luxdamore/nuxt-apis-to-file",
-    "version": "1.0.0",
+    "version": "0.0.0-beta.9",
     "description": "Nuxt module to merge and transform API calls into a file",
     "author": "Luca Iaconelli <lucabelli@msn.com> (https://lucaiaconelli.it)",
+    "license": "https://github.com/LuXDAmore/nuxt-apis-to-file/LICENSE",
     "homepage": "https://luxdamore.github.io/nuxt-apis-to-file",
-    "main": "./src/index.js",
     "keywords": [
         "nuxt-module",
         "vuejs",
@@ -16,35 +16,12 @@
         "json",
         "file"
     ],
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "eslint": "eslint --ext .js,.vue .",
-        "eslint-fix": "eslint --fix --ext .js,.vue .",
-        "lint": "npm run eslint",
-        "lint-fix": "npm run eslint-fix",
-        "precommit": "npm run lint"
-    },
-    "dependencies": {
-        "axios": "^0.19.0",
-        "fs-extra": "^8.1.0"
-    },
-    "devDependencies": {
-        "babel-eslint": "^10.0.3",
-        "eslint": "^6.6.0",
-        "eslint-config-standard": "^14.1.0",
-        "eslint-loader": "^3.0.2",
-        "eslint-plugin-compat": "^3.3.0",
-        "eslint-plugin-import": "^2.18.2",
-        "eslint-plugin-node": "^10.0.0",
-        "eslint-plugin-prettier": "^3.1.1",
-        "eslint-plugin-promise": "^4.2.1",
-        "eslint-plugin-standard": "^4.0.1",
-        "eslint-plugin-unicorn": "^13.0.0",
-        "lint-staged": "^9.4.3",
-        "prettier": "^1.19.1",
-        "prettier-eslint": "^9.0.1"
-    },
-    "license": "https://github.com/LuXDAmore/nuxt-apis-to-file/LICENSE",
+    "contributors": [
+        {
+            "name": "Luca Iaconelli <lucabelli@msn.com> (https://lucaiaconelli.it)"
+        }
+    ],
+    "main": "lib/module.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/LuXDAmore/nuxt-apis-to-file.git"
@@ -55,18 +32,50 @@
     "publishConfig": {
         "access": "public"
     },
-    "lint-staged": {
-        "*.{js,vue}": [
-            "vue-cli-service lint",
-            "git add"
-        ]
+    "scripts": {
+        "dev": "nuxt example",
+        "eslint": "eslint --ext .js,.vue .",
+        "eslint-fix": "eslint --fix --ext .js,.vue .",
+        "lint": "yarn eslint",
+        "lint-fix": "yarn eslint-fix",
+        "precommit": "yarn lint",
+        "test": "yarn lint && jest",
+        "release": "yarn test && standard-version && git push --follow-tags && npm publish"
     },
-    "gitHooks": {
-        "pre-commit": "lint-staged"
+    "files": [
+        "lib"
+    ],
+    "dependencies": {
+        "axios": "^0.19.0",
+        "fs-extra": "^8.1.0"
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
+    "devDependencies": {
+        "@babel/core": "latest",
+        "@babel/preset-env": "latest",
+        "@commitlint/cli": "latest",
+        "@commitlint/config-conventional": "latest",
+        "@nuxtjs/eslint-config": "latest",
+        "babel-eslint": "latest",
+        "babel-jest": "latest",
+        "codecov": "latest",
+        "eslint": "latest",
+        "eslint-config-standard": "^14.1.0",
+        "eslint-loader": "^3.0.2",
+        "eslint-plugin-compat": "^3.3.0",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-node": "^10.0.0",
+        "eslint-plugin-prettier": "^3.1.1",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.1",
+        "eslint-plugin-unicorn": "^13.0.0",
+        "prettier": "^1.19.1",
+        "prettier-eslint": "^9.0.1",
+        "get-port": "latest",
+        "husky": "latest",
+        "jest": "latest",
+        "nuxt-edge": "latest",
+        "request": "latest",
+        "request-promise-native": "latest",
+        "standard-version": "latest"
     }
 }

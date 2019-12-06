@@ -58,5 +58,10 @@
         "paypal",
         "preload",
         "tympanus"
+    ],
+    "cSpell.ignoreWords": [
+        "circleci",
+        "commitlint",
+        "esmodules"
     ]
 }

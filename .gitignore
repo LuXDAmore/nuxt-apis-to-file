@@ -1,24 +1,9 @@
-# Common
-.DS_Store
-.env
-desktop.ini
-node_modules/
-bower_components/
-
-# Library
-dist/demo.html
-
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-report.*
-*.heapsnapshot
-
-# Editor directories and files
+node_modules
+*.iml
 .idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw*
+*.log*
+.nuxt
+.vscode
+.DS_Store
+coverage
+dist
