@@ -76,7 +76,7 @@
         "get-port": "latest",
         "husky": "latest",
         "jest": "latest",
-        "nuxt-edge": "latest",
+        "nuxt": "^2.10.2",
         "prettier": "latest",
         "prettier-eslint": "latest",
         "request": "latest",
