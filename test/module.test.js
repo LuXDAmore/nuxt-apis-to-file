@@ -1,25 +1,13 @@
+import { Nuxt, Builder } from 'nuxt-edge';
+import request from 'request-promise-native';
+import getPort from 'get-port';
+import config from '../example/nuxt.config';
+
+config.dev = false;
+
 jest.setTimeout(
     60000
 );
-
-const {
-        Nuxt,
-        Builder,
-    } = require(
-        'nuxt-edge'
-    )
-    , request = require(
-        'request-promise-native'
-    )
-    , getPort = require(
-        'get-port'
-    )
-    , config = require(
-        '../example/nuxt.config'
-    )
-;
-
-config.dev = false;
 
 let nuxt
     , port
