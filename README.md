@@ -1,37 +1,235 @@
-## Welcome to GitHub Pages
+# Vue Cursor Fx
 
-You can use the [editor on GitHub](https://github.com/LuXDAmore/nuxt-apis-to-json/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+[DEMO](https://luxdamore.github.io/vue-cursor-fx)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+An animated custom cursor effects for interactive elements like navigation - w/ VueJS - SSR Compatible _(but not with touchscreen devices)_
 
-### Markdown
+## Installation
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This package is available on npm.
 
-```markdown
-Syntax highlighted code block
+```bash
 
-# Header 1
-## Header 2
-### Header 3
+    # Deps
+    npm install --save @luxdamore/vue-cursor-fx
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Usage
 
-### Jekyll Themes
+#### As a component
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/LuXDAmore/nuxt-apis-to-json/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```js
 
-### Support or Contact
+    // Component
+    import { CursorFx } from '@luxdamore/vue-cursor-fx';
+    import '@luxdamore/vue-cursor-fx/dist/CursorFx.css';
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+    // Install
+    Vue.component(
+        CursorFx.name,
+        CursorFx
+    );
+
+    // Or in a .vue file
+    export default {
+        components: {
+            'cursor-fx': CursorFx,
+        },
+    };
+
+```
+
+#### As a plugin
+
+```js
+
+    // Plugin
+    import CursorFx from '@luxdamore/vue-cursor-fx';
+    import '@luxdamore/vue-cursor-fx/dist/CursorFx.css';
+
+    // Install
+    Vue.use(
+        CursorFx
+    );
+
+```
+
+#### Browser's way
+
+```html
+
+    <!doctype html>
+    <html>
+        <head>
+
+            <!-- CursorFx style -->
+
+                <!-- Old way -->
+                <link rel="stylesheet" href="https://unpkg.com/@luxdamore/vue-cursor-fx@latest/dist/CursorFx.css" />
+                <!-- end old way -->
+
+                <!-- New way -->
+                <link rel="preload" href="https://unpkg.com/@luxdamore/vue-cursor-fx@latest/dist/CursorFx.css" as="style" onload="this.rel='stylesheet'" />
+                <link rel="preload" href="https://unpkg.com/@luxdamore/vue-cursor-fx@latest/dist/CursorFx.umd.min.js" as="script" />
+                <!-- end new way -->
+
+            <!-- end CursorFx style -->
+
+        </head>
+        <body>
+
+            <!--
+                Others script (ex. VueJs) and html.
+            -->
+
+            <!-- CursorFx script -->
+                <script src="https://unpkg.com/@luxdamore/vue-cursor-fx@latest/dist/CursorFx.umd.min.js"></script>
+            <!-- end CursorFx script -->
+
+        </body>
+    </html>
+
+```
+
+#### Markup
+
+_Use it just one time in the main file of your project or in every views where you want it._
+
+```html
+
+    <button
+        type="button"
+        class="button"
+        data-cursor-hover
+    >
+        Add `data-cursor-hover` to an every html elements that you want to see the cursor bigger on hover
+    </button>
+
+    <button
+        type="button"
+        class="button"
+        data-cursor-hidden
+    >
+        Add `data-cursor-hidden` to an every html elements that you want to hide the cursor on hover
+    </button>
+
+    <cursor-fx />
+
+```
+
+### Options
+
+#### Slots
+
+```bash
+
+    # Available
+    slot="default"  # Add some content in the middle of the cursor
+
+```
+
+#### Props
+
+| Attribute | Type | Default | Required | About |
+|:--------------------:|--------------------|:-------:|:--------:|-------------------------------------|
+| config | Object | {} | false | The default options applied to cursor, see below the `BASE_CONFIG` |
+| color | String | #333333 | false | Color for the cursor |
+| color-hover | String | #333333 | false | Color, on hover, for the cursor |
+| outside-size | String | null | false | The size of outer circle |
+| inside-size | String | null | false | The size of inner dot |
+| shape | String | null | false | Only available shapes are 'circle' and 'square' |
+| delay | String, Number | 60 | false | Activate cursor after x seconds |
+| force-custom-slot | Boolean | false | false | Show or hide the internal default slot |
+| hide-outside | Boolean | false | false | Hide outer circle |
+| hide-inside | Boolean | false | false | Hide inner dot |
+
+```js
+
+    const BASE_CONFIG = {
+        lerps: {
+            dot: 1,
+            circle: 0.18,
+            custom: 0.23,
+        },
+        scale: {
+            ratio: 0.18,
+            min: 0.5,
+            max: 1,
+        },
+        opacity: 0.1,
+    };
+
+```
+
+#### Integrations
+
+##### VueRouter
+
+```html
+
+    <!-- App.vue -->
+    <template>
+        <div>
+
+            <router-view></router-view>
+
+            <cursor-fx />
+
+        </div>
+    </template>
+
+```
+
+##### NuxtJs
+
+- For the entire website: place the component in the desired layouts (ex. layouts/default.vue);
+- For some pages only: place the component in the desired pages (ex. pages/index.vue).
+
+```html
+
+    <!-- layout/default.vue -->
+    <template>
+        <div>
+
+            <nuxt />
+
+            <cursor-fx />
+
+        </div>
+    </template>
+
+```
+
+## Issues
+
+Please make sure to read the [Issue Reporting Checklist](https://github.com/LuXDAmore/vue-cursor-fx/blob/master/.github/ISSUE_TEMPLATE/bug_report.md) before opening an issue. Issues not conforming to the guidelines may be closed immediately.
+
+## Contribution
+
+Please make sure to read the [Contributing Guide](https://github.com/LuXDAmore/vue-cursor-fx/blob/master/.github/ISSUE_TEMPLATE/feature_request.md) before making a pull request.
+
+## Changelog
+
+Details changes for each release are documented in the [release notes](https://github.com/LuXDAmore/vue-cursor-fx/blob/master/CHANGELOG.md).
+
+### License
+
+[MIT](http://opensource.org/licenses/MIT) // Copyright (©) 2019-present [Luca Iaconelli](https://lucaiaconelli.it)
+
+#### Are you feeling generous today?  :)
+
+You can donate me a beer, we can be good friends
+__[Paypal](https://www.paypal.me/luxdamore) // [Patreon](https://www.patreon.com/luxdamore)__
+
+_It's always a good day to be magnanimous - cit_
+
+#### Inspired by
+
+[CustomCursors by Tympanus](https://tympanus.net/Tutorials/CustomCursors/index3.html)
+
+#### Hire me
+
+[![Otechie](https://api.otechie.com/consultancy/luca-iaconelli/badge.svg)](https://otechie.com/luca-iaconelli)
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/luxdamore)

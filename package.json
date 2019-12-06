@@ -1,0 +1,72 @@
+{
+    "name": "@luxdamore/nuxt-apis-to-file",
+    "version": "1.0.0",
+    "description": "Nuxt module to merge and transform API calls into a file",
+    "author": "Luca Iaconelli <lucabelli@msn.com> (https://lucaiaconelli.it)",
+    "homepage": "https://luxdamore.github.io/nuxt-apis-to-file",
+    "main": "./src/index.js",
+    "keywords": [
+        "nuxt-module",
+        "vuejs",
+        "nuxtjs",
+        "modules",
+        "build",
+        "axios",
+        "apis",
+        "json",
+        "file"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "eslint": "eslint --ext .js,.vue .",
+        "eslint-fix": "eslint --fix --ext .js,.vue .",
+        "lint": "npm run eslint",
+        "lint-fix": "npm run eslint-fix",
+        "precommit": "npm run lint"
+    },
+    "dependencies": {
+        "axios": "^0.19.0",
+        "fs-extra": "^8.1.0"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.0.3",
+        "eslint": "^6.6.0",
+        "eslint-config-standard": "^14.1.0",
+        "eslint-loader": "^3.0.2",
+        "eslint-plugin-compat": "^3.3.0",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-node": "^10.0.0",
+        "eslint-plugin-prettier": "^3.1.1",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.1",
+        "eslint-plugin-unicorn": "^13.0.0",
+        "lint-staged": "^9.4.3",
+        "prettier": "^1.19.1",
+        "prettier-eslint": "^9.0.1"
+    },
+    "license": "https://github.com/LuXDAmore/nuxt-apis-to-file/LICENSE",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/LuXDAmore/nuxt-apis-to-file.git"
+    },
+    "bugs": {
+        "url": "https://github.com/LuXDAmore/nuxt-apis-to-file/issues"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "lint-staged": {
+        "*.{js,vue}": [
+            "vue-cli-service lint",
+            "git add"
+        ]
+    },
+    "gitHooks": {
+        "pre-commit": "lint-staged"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    }
+}
