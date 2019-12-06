@@ -39,7 +39,6 @@
         "eslint-fix": "eslint --fix --ext .js,.vue .",
         "lint": "yarn eslint",
         "lint-fix": "yarn eslint-fix",
-        "precommit": "yarn lint",
         "test": "yarn lint && jest",
         "release": "yarn test && standard-version && git push --follow-tags && npm publish"
     },
