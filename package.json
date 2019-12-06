@@ -33,7 +33,7 @@
         "access": "public"
     },
     "scripts": {
-        "dev": "nuxt example",
+        "dev": "nuxt -o example",
         "eslint": "eslint --ext .js,.vue .",
         "eslint-fix": "eslint --fix --ext .js,.vue .",
         "lint": "yarn eslint",
