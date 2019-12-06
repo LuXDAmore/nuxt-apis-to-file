@@ -1,9 +1,4 @@
 {
-    // CSS
-    "css.validate": false,
-    "less.validate": false,
-    "scss.validate": false,
-    "html.validate.styles": false,
     // ESLint
     "eslint.enable": true,
     "eslint.alwaysShowStatus": true,
@@ -22,7 +17,6 @@
             "autoFix": true
         }
     ],
-    "stylelint.enable": true,
     // Vue
     "vetur.format.styleInitialIndent": true,
     "vetur.format.defaultFormatter.js": "prettier-eslint",
@@ -49,19 +43,10 @@
         "statusBar.foreground": "#15202b"
     },
     "peacock.color": "#42b883",
-    "cSpell.words": [
-        "iaconelli",
-        "lerps",
-        "luxdamore",
-        "otechie",
-        "patreon",
-        "paypal",
-        "preload",
-        "tympanus"
-    ],
     "cSpell.ignoreWords": [
-        "circleci",
+        "codecov",
         "commitlint",
-        "esmodules"
+        "esmodules",
+        "parens"
     ]
 }

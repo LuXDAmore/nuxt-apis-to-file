@@ -1,11 +1,9 @@
 <template>
-  <div>
-    Works!
-  </div>
+    <div>
+        Works!
+    </div>
 </template>
 
 <script>
-export default {
-
-}
+    export default {};
 </script>

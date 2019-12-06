@@ -1,5 +1,8 @@
 # @luxdamore/nuxt-apis-to-file
 
+[GitHub](https://github.com/nuxt/nuxt.js/issues/123#issuecomment-272246782)
+Add the folder apis-to-json/ to your gitignore.
+
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![Circle CI][circle-ci-src]][circle-ci-href]
@@ -12,24 +15,34 @@
 
 ## Setup
 
-1. Add `@luxdamore/nuxt-apis-to-file` dependency to your project
+1. Add `@luxdamore/nuxt-apis-to-file` dependency to your project;
+2. Add `@luxdamore/nuxt-apis-to-file` to the `buildModules` section of `nuxt.config.js`. [DOCS](https://nuxtjs.org/guide/modules/#build-only-modules)
 
 ```bash
-yarn add @luxdamore/nuxt-apis-to-file # or npm install @luxdamore/nuxt-apis-to-file
-```
 
-2. Add `@luxdamore/nuxt-apis-to-file` to the `modules` section of `nuxt.config.js`
+    yarn add @luxdamore/nuxt-apis-to-file # or npm install @luxdamore/nuxt-apis-to-file
 
-```js
-{
-  modules: [
-    // Simple usage
-    '@luxdamore/nuxt-apis-to-file',
+    # nuxt.config.js
+    {
+        buildModules: [ '@luxdamore/nuxt-apis-to-file' ],
+        apisToFile: {
+            file: {
+                name: 'data',
+                ext: 'json',
+                path: moduleName,
+                # Options directly passed to `fs-extra`
+                options: {},
+            },
+            hideErrorsInConsole: false,
+            hideGenericMessagesInConsole: false,
+            dir: null,
+            # APIs that you need to call, required
+            requests: [],
+            # [@nuxtjs/axios](https://axios.nuxtjs.org/) are automatically injected, but you can override them here
+            axios: {},  
+        }
+    }
 
-    // With options
-    ['@luxdamore/nuxt-apis-to-file', { /* module options */ }]
-  ]
-}
 ```
 
 ## Development
