@@ -1,0 +1,16 @@
+query allUsers {
+    allUsers {
+        id
+        name
+        createdAt
+        email
+        comments {
+            id
+            text
+        }
+        posts {
+            id
+            title
+        }
+    }
+}

@@ -1,4 +1,0 @@
-{
-    "query": "query categories {\n listCategories(filter:{type:\"advertisement\"}){\n items {\n id\n url\n name\n slug\n path\n type\n level\n children {\n id\n url\n name\n slug\n path\n type\n level\n children {\n id\n url\n name\n slug\n path\n type\n level\n }\n }\n }\n }\n }",
-    "operationName": "categories"
-}

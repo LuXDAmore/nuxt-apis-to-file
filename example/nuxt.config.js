@@ -1,6 +1,8 @@
 import { resolve } from 'path';
 import * as PACKAGE from '../package.json';
 
+import { USERS } from './graphql';
+
 const meta = [
     {
         once: true,
@@ -25,6 +27,29 @@ export default {
             '../lib/module'
         ),
     ],
+    apisToFile: {
+        axios: {
+            baseURL: 'https://jsonplaceholder.typicode.com',
+        },
+        requests: [
+            {
+                endpoint: '/posts',
+                field: 'posts',
+            },
+            {
+                endpoint: '/comments',
+                field: 'comments',
+            },
+            // GraphQL
+            {
+                endpoint: 'https://api.graph.cool/simple/v1/ciyz901en4j590185wkmexyex',
+                method: 'post',
+                field: 'users',
+                pathToData: 'data.allUsers',
+                body: USERS,
+            },
+        ],
+    },
     srcDir: __dirname,
     head: {
         htmlAttrs: {
@@ -32,9 +57,6 @@ export default {
         },
         title: PACKAGE.name,
         meta,
-    },
-    render: {
-        resourceHints: false,
     },
     /*
      * Generate

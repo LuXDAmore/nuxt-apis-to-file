@@ -1,3 +1,3 @@
-import * as CATEGORIES from './categories.json';
+import * as USERS from './users.json';
 
-export { CATEGORIES };
+export { USERS };
