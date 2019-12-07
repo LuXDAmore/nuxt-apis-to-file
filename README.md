@@ -45,12 +45,12 @@ ___
                 // Options passed directly to [fs-extra.outputJson](https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputJson.md)
                 options: {},
             },
-            // Hide console messages, default = `! this.options.dev`
+            // Hide console messages
             hideErrorsInConsole: false,
-            hideGenericMessagesInConsole: false,
+            hideGenericMessagesInConsole: false, // default = `! this.options.dev`
             // A sub-folder of -file.path- in which to place the file
             dir: null,
-            // [@nuxtjs/axios](https://axios.nuxtjs.org/) are automatically injected, but you can override them here
+            // [@nuxtjs/axios](https://axios.nuxtjs.org/) config is automatically injected, but you can override it here
             axios: {},
             // Your APIs to extract, **required**
             requests: [
@@ -234,4 +234,6 @@ ___
 ##### TODO
 
 - Need tests;
-- Need examples: GraphQL.
+- Need examples: GraphQL;
+- Automatically transform .gql into json?
+- API calls should continue on error?
