@@ -117,7 +117,7 @@ describe(
                         value
                     );
 
-                }
+                };
 
                 test(
                     'comments',
