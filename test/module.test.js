@@ -1,4 +1,5 @@
 import { Nuxt, Builder } from 'nuxt';
+import { JSDOM } from 'jsdom';
 import request from 'request-promise-native';
 import getPort from 'get-port';
 import config from '../example/nuxt.config';
@@ -22,7 +23,7 @@ const url = path => `http://localhost:${ port }${ path }`
 ;
 
 describe(
-    'basic',
+    'nuxt',
     () => {
 
         beforeAll(
@@ -66,7 +67,92 @@ describe(
                 expect(
                     html
                 ).toContain(
-                    'Works!'
+                    'NUXT Apis to file'
+                );
+
+            }
+        );
+
+        describe(
+            'data',
+            () => {
+
+                const getElement = async(
+                    selector,
+                    value
+                ) => {
+
+                    const html = await get(
+                            '/'
+                        )
+                        , { window } = new JSDOM(
+                            html
+                        ).window
+                        , element = window.document.querySelector(
+                            selector
+                        )
+                        , number = element.querySelector(
+                            '.number'
+                        )
+                        , numberValue = number.textContent
+                    ;
+
+                    expect(
+                        element
+                    ).toBeDefined();
+
+                    expect(
+                        number
+                    ).toBeDefined();
+
+                    expect(
+                        numberValue
+                    ).toBeDefined();
+
+                    expect(
+                        parseInt(
+                            numberValue
+                        )
+                    ).toEqual(
+                        value
+                    );
+
+                }
+
+                test(
+                    'comments',
+                    async() => {
+
+                        await getElement(
+                            '.comments',
+                            500,
+                        );
+
+                    }
+                );
+
+                test(
+                    'comments',
+                    async() => {
+
+                        await getElement(
+                            '.posts',
+                            100,
+                        );
+
+                    }
+                );
+
+                test(
+                    'users',
+                    async() => {
+
+                        await getElement(
+                            '.users',
+                            35,
+                        );
+
+                    }
                 );
 
             }
