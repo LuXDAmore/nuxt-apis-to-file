@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/LuXDAmore/nuxt-apis-to-file/compare/v0.0.3...v0.0.4) (2019-12-07)
+
+
+### Features
+
+* added examples ([0cfd811](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/0cfd811add73c1e356f990f18b1e0b681bba55ed))
+* added test ([554547d](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/554547d6ed3cdaa0e6e45b7fb0ca5f768f2aeef5))
+* extension for graphql ([c85a943](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/c85a94393f407f8095c304d6692f402efdc171c8))
+
+
+### Bug Fixes
+
+* errors ([139a277](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/139a2774f1850664bbf59e882da8427521735cbf))
+
 ### [0.0.1](https://github.com/LuXDAmore/nuxt-apis-to-file/compare/v0.0.0...v0.0.1) (2019-12-06)
 
 ## 0.0.0 (2019-12-06)
