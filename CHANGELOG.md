@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/LuXDAmore/nuxt-apis-to-file/compare/v0.0.4...v0.0.5) (2019-12-09)
+
+
+### Features
+
+* better check-if-undefined ([c74b8b0](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/c74b8b045083ad5a2b5c79cb9083ddfa7245bd91))
+* generate folder for github pages ([05dd749](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/05dd7495603d37b1d493c5dc3df2d3c5b29b60e2))
+
 ### [0.0.4](https://github.com/LuXDAmore/nuxt-apis-to-file/compare/v0.0.3...v0.0.4) (2019-12-07)
 
 
