@@ -59,6 +59,16 @@ export default {
         meta,
     },
     /*
+     * Router
+     */
+    router: {
+        base: (
+            process.env.NODE_ENV === 'production'
+            ? '/nuxt-apis-to-file/'
+            : '/'
+        ),
+    },
+    /*
      * Generate
      */
     generate: {
