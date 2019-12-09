@@ -181,7 +181,7 @@ ___
 
             commit(
                 'news/SET_NEWS_CATEGORIES',
-                itemsCategories,
+                newsCategories,
                 {
                     root: true,
                 }
