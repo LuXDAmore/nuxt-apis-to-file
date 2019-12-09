@@ -8,7 +8,7 @@
 
 > Nuxt module to merge and transform API calls into a single file, like a `payload-extractor`.
 
-## Motivation
+## 💘 Motivation
 
 If you have (like me), too much `dispatch` in you [nuxtServerInit](https://nuxtjs.org/guide/vuex-store/#the-nuxtserverinit-action) action, maybe you prefer to merge all of this requests into a single JSON file to **speed up**, **blazing fast** your *nuxt-website*!
 This file is generated *during the build-process* and it's called only *once*.
@@ -258,6 +258,7 @@ ___
 
 > Just asking myself if i should do more.
 
+- Add more tests.
 - Automatically transform .gql and .graphql files for the json-body?
 - API calls should continue on error? (Instead of using a try-for i can use a for-try)
 - Add a plugin or a template for the generated data?
