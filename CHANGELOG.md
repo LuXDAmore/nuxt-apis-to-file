@@ -41,5 +41,3 @@ All notable changes to this project will be documented in this file. See [standa
 * Nuxt config for the module. ([7112cb5](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/7112cb56023022fea77964394b960525900c0259))
 * tests ([3757c24](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/3757c2417f55eaf32b6551d6c89efd20011faeb4))
 * Tests. ([26deb89](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/26deb8992b29f610ed67c346d3c83a71265fa300))
-
-# Changelog
