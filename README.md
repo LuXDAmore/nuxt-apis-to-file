@@ -8,6 +8,22 @@
 
 > Nuxt module to merge and transform API calls into a single file, like a `payload-extractor`.
 
+## Motivation
+
+If you have (like me), too much `dispatch` in you [nuxtServerInit](https://nuxtjs.org/guide/vuex-store/#the-nuxtserverinit-action) action, maybe you prefer to merge all of this requests into a single JSON file to **speed up**, **blazing fast** your *nuxt-website*!
+This file is generated *during the build-process* and it's called only *once*.
+In this way, your are also saving and protecting your data because you aren't exposing the `.json` file in the `static/` dir (you can change this behavior passing a different configuration to the module).
+
+[Inspired by this comment](https://github.com/nuxt/nuxt.js/issues/123#issuecomment-272246782).
+
+> You can use this module for every *static*, *shared* or *pre-loaded* data.
+
+Usually, when you **call one or more API** 📞, you're slowing down your website because every single request need to *resolve the response* (with different [TTFB](https://web.dev/time-to-first-byte/)).
+
+> Having 3/4 requests in the `nuxtServerInit` or in the `asyncData` can increase **up to a second** the TTFB of your website (causing **worse performance audits**).
+
+With this module you (and your user) no longer have to wait for this anymore, because everything is resolved during the build-process.
+
 ___
 
 ## Setup
@@ -22,19 +38,10 @@ ___
 
 ```
 
-## Related things you should know
-
-- [srcDir](https://nuxtjs.org/api/configuration-srcdir/);
-- [staticDir](https://nuxtjs.org/api/configuration-dir/);
-- [buildModules](https://nuxtjs.org/guide/modules/#build-only-modules);
-- [fs-extra.outputJson](https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputJson.md);
-- [Axios.create](https://github.com/axios/axios#creating-an-instance).
-- [@nuxtjs/axios](https://axios.nuxtjs.org/);
-
 ```js
 
     // nuxt.config.js
-    {
+    export default {
 
         // Module installation
         modules: [ '@luxdamore/nuxt-apis-to-file' ], // nuxt < v2.9
@@ -67,7 +74,7 @@ ___
                 {
                     endpoint: 'https://awesome-api.com/give-me-my-blazing-fast-data', // default = `axios.url`
                     method: 'get', // default = `axios.method || 'get'`
-                    // The params of the request, you can pass a GraphQL query too, check it in the example folder
+                    // The params of the request, you can pass a graph-ql query too, check it in the example folder
                     body: {},
                     // Use this to map the response in a custom `key`
                     field: 'categories', // default = `the actual index in this array of requests`
@@ -101,14 +108,6 @@ ___
 
 ```
 
-## Motivation
-
-If you have (like me), too much `dispatch` in you [nuxtServerInit](https://nuxtjs.org/guide/vuex-store/#the-nuxtserverinit-action) action, maybe you prefer to merge all of this requests into a single JSON file to **speed up**, **blazing fast** your *nuxt-website*!
-This file is generated only *during the build-process* and it's called only *one time*.
-In this way, your are also protecting your data because you aren't exposing the `data.json` file in the `static/` dir (you can change this behavior passing a different configuration to the module).
-
-[Inspired by this comment](https://github.com/nuxt/nuxt.js/issues/123#issuecomment-272246782).
-
 ### Usage
 
 ```js
@@ -119,6 +118,15 @@ In this way, your are also protecting your data because you aren't exposing the 
             { dispatch },
         ) {
 
+            // usual old-slowly-way
+            await dispatch(
+                'items/getItemsCategories',  // TTFB + ~200ms
+            );
+            await dispatch(
+                'news/getNewsCategories',  // TTFB + ~250ms
+            );
+
+            // with apis-to-json
             await dispatch(
                 'build-data/getDataFromFile',
             );
@@ -126,6 +134,7 @@ In this way, your are also protecting your data because you aren't exposing the 
         },
     };
 
+    // create a module to read the generated file
     // store/build-data.js
     const getFile = () => import(
         '~/apis-to-file/data.json'
@@ -163,7 +172,7 @@ In this way, your are also protecting your data because you aren't exposing the 
             }
 
             commit(
-                'categories/SET_CATEGORIES',
+                'items/SET_ITEMS_CATEGORIES',
                 itemsCategories,
                 {
                     root: true,
@@ -171,7 +180,7 @@ In this way, your are also protecting your data because you aren't exposing the 
             );
 
             commit(
-                'categories/SET_NEWS_CATEGORIES',
+                'news/SET_NEWS_CATEGORIES',
                 itemsCategories,
                 {
                     root: true,
@@ -185,11 +194,20 @@ In this way, your are also protecting your data because you aren't exposing the 
 
 ___
 
+### Related things you should know
+
+- Nuxt [srcDir](https://nuxtjs.org/api/configuration-srcdir/);
+- Nuxt [staticDir](https://nuxtjs.org/api/configuration-dir/);
+- Nuxt [buildModules](https://nuxtjs.org/guide/modules/#build-only-modules);
+- [fs-extra.outputJson](https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputJson.md);
+- [Axios.create](https://github.com/axios/axios#creating-an-instance);
+- [@nuxtjs/axios](https://axios.nuxtjs.org/).
+
 ## Development
 
-1. Clone this repository
-2. Install dependencies using `yarn install` or `npm install`
-3. Start development server using `npm run dev`
+1. Clone this repository;
+2. Install dependencies using `yarn install` or `npm install`;
+3. Start development server using `npm run dev`.
 
 [npm-version-src]: https://img.shields.io/npm/v/@luxdamore/nuxt-apis-to-file/latest.svg?style=flat-square
 [npm-version-href]: https://npmjs.com/package/@luxdamore/nuxt-apis-to-file
@@ -224,14 +242,13 @@ Details changes for each release are documented in the [**release notes**](./CHA
 
 #### 💸 Are you feeling generous today?  :)
 
-Do you want to give me a beer? We can be good friends..
-__[Paypal](https://www.paypal.me/luxdamore) // [Patreon](https://www.patreon.com/luxdamore)__
+Do you want to share a beer? We can be good friends.. __[Paypal](https://www.paypal.me/luxdamore) // [Patreon](https://www.patreon.com/luxdamore)__
 
 > _It's always a good day to be magnanimous - cit_
 
 #### 💼 Hire me
 
-[![Otechie](https://api.otechie.com/consultancy/luca-iaconelli/badge.svg)](https://otechie.com/luca-iaconelli)
+[![Otechie](https://api.otechie.com/consultancy/luxdamore/badge.svg)](https://otechie.com/luxdamore)
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/luxdamore)
 
@@ -239,5 +256,10 @@ ___
 
 ##### ✔ TODO
 
-- Automatically transform .gql into json?
-- API calls should continue on error?
+> Just asking myself if i should do more.
+
+- Automatically transform .gql and .graphql files for the json-body?
+- API calls should continue on error? (Instead of using a try-for i can use a for-try)
+- Add a plugin or a template for the generated data?
+- Automatically inject the data in context?
+- Automatically inject it in the store?
