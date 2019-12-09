@@ -1,5 +1,5 @@
-query allUsers {
-    allUsers(first: 10) {
+query allUsers($first: Int) {
+    allUsers(first: $first) {
         id
         name
         createdAt
