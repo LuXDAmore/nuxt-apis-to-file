@@ -14,15 +14,15 @@ If you have (like me), too much `dispatch` in you [nuxtServerInit](https://nuxtj
 This file is generated *during the build-process* and it's called only *once*.
 In this way, your are also saving and protecting your data because you aren't exposing the `.json` file in the `static/` dir (you can change this behavior passing a different configuration to the module).
 
-[Inspired by this comment](https://github.com/nuxt/nuxt.js/issues/123#issuecomment-272246782).
-
-> You can use this module for every *static*, *shared* or *pre-loaded* data.
-
 Usually, when you **call one or more API** 📞, you're slowing down your website because every single request need to *resolve the response* (with different [TTFB](https://web.dev/time-to-first-byte/)).
 
 > Having 3/4 requests in the `nuxtServerInit` or in the `asyncData` can increase **up to a second** the TTFB of your website (causing **worse performance audits**).
 
 With this module you (and your users) no longer have to wait for this anymore, because everything is resolved during the build-process.
+
+> You can use this module for every *static*, *shared* or *pre-loaded* data.
+
+[Inspired by this comment](https://github.com/nuxt/nuxt.js/issues/123#issuecomment-272246782).
 
 ___
 
@@ -134,7 +134,7 @@ ___
         },
     };
 
-    // create a module to read the generated file
+    // create a module to load the generated file
     // store/build-data.js
     const getFile = () => import(
         '~/apis-to-file/data.json'
