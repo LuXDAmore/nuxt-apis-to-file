@@ -22,7 +22,7 @@ Usually, when you **call one or more API** 📞, you're slowing down your websit
 
 > Having 3/4 requests in the `nuxtServerInit` or in the `asyncData` can increase **up to a second** the TTFB of your website (causing **worse performance audits**).
 
-With this module you (and your user) no longer have to wait for this anymore, because everything is resolved during the build-process.
+With this module you (and your users) no longer have to wait for this anymore, because everything is resolved during the build-process.
 
 ___
 
