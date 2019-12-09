@@ -1,5 +1,5 @@
 query allUsers {
-    allUsers {
+    allUsers(first: 10) {
         id
         name
         createdAt

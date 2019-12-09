@@ -149,7 +149,7 @@ describe(
 
                         await getElement(
                             '.users',
-                            35,
+                            10,
                         );
 
                     }
