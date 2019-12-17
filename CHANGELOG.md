@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/LuXDAmore/nuxt-apis-to-file/compare/v0.0.5...v0.0.6) (2019-12-17)
+
+
+### Features
+
+* better error report ([1e7af8c](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/1e7af8c483638c2aab4b569fd1390ee12068df40))
+
+
+### Bug Fixes
+
+* eslint config ([f86f108](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/f86f108cde175a4d6e606d855bd093d22aa15db3))
+
 ### [0.0.5](https://github.com/LuXDAmore/nuxt-apis-to-file/compare/v0.0.4...v0.0.5) (2019-12-09)
 
 
