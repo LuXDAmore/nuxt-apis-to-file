@@ -54,7 +54,7 @@
         "fs-extra": "^8.1.0"
     },
     "devDependencies": {
-        "@babel/core": "latest",
+        "@babel/core": "^7.7.7",
         "@babel/preset-env": "^7.7.6",
         "@commitlint/cli": "latest",
         "@commitlint/config-conventional": "latest",
@@ -75,7 +75,7 @@
         "eslint-plugin-standard": "latest",
         "eslint-plugin-unicorn": "latest",
         "eslint-plugin-vue": "latest",
-        "get-port": "latest",
+        "get-port": "^5.1.0",
         "husky": "latest",
         "jest": "latest",
         "jsdom": "^15.2.1",
