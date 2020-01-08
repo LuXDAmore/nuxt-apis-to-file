@@ -34,7 +34,12 @@ module.exports = {
         'spaced-comment': [ 'warn', 'always' ],
         'function-call-argument-newline': [ 'warn', 'always' ],
         'prefer-const': 'warn',
-        'no-useless-rename': 'warn',
+        'no-useless-rename': [
+            'warn',
+            {
+                ignoreExport: true,
+            },
+        ],
         'rest-spread-spacing': [
             'warn',
             'always',
@@ -101,6 +106,7 @@ module.exports = {
         ],
         'no-unreachable': 'warn',
         'no-confusing-arrow': 'warn',
+        'no-constant-condition': 'warn',
         curly: [
             'warn',
             'multi-or-nest',
@@ -374,8 +380,8 @@ module.exports = {
             }
         ],
         'max-len': [
-            'off',
-            254,
+            'warn',
+            300,
             4,
             {
                 ignoreUrls: true,
@@ -388,6 +394,13 @@ module.exports = {
             72,
             {
                 ignoreTopLevelFunctions: true,
+            }
+        ],
+        'lines-between-class-members': [
+            'warn',
+            'always',
+            {
+                exceptAfterSingleLine: true,
             }
         ],
         // Plugins
@@ -478,4 +491,4 @@ module.exports = {
             }
         ],
     },
-}
+};
