@@ -1,6 +1,6 @@
 {
     "name": "@luxdamore/nuxt-apis-to-file",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Nuxt module to merge and transform API calls into a single file, like a payload extractor",
     "author": "Luca Iaconelli <lucabelli@msn.com> (https://lucaiaconelli.it)",
     "license": "MIT",
