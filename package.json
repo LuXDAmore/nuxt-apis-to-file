@@ -37,13 +37,14 @@
     "scripts": {
         "dev": "nuxt -o example",
         "build": "nuxt build example",
+        "pregenerate": "yarn build",
         "generate": "nuxt generate example",
         "eslint": "eslint --ext .js,.vue .",
         "eslint-fix": "eslint --fix --ext .js,.vue .",
         "lint": "yarn eslint",
         "lint-fix": "yarn eslint-fix",
         "test": "yarn lint && jest",
-        "release": "yarn test && yarn build && yarn generate && standard-version && git push --follow-tags && npm publish"
+        "release": "yarn test && yarn generate && standard-version && git push --follow-tags && yarn publish"
     },
     "files": [
         "lib"
