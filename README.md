@@ -38,6 +38,10 @@ ___
 
 ```
 
+## Configuration
+
+**_N.B. : Shallow merge, not deep merge._**
+
 ```js
 
     // nuxt.config.js
