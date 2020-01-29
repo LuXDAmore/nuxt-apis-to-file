@@ -62,12 +62,12 @@
         "@nuxtjs/eslint-config": "latest",
         "@vue/eslint-config-prettier": "latest",
         "babel-eslint": "latest",
-        "babel-jest": "latest",
-        "codecov": "latest",
+        "babel-jest": "^25.1.0",
+        "codecov": "^3.6.2",
         "eslint": "^6.8.0",
         "eslint-config-standard": "latest",
         "eslint-loader": "latest",
-        "eslint-plugin-compat": "latest",
+        "eslint-plugin-compat": "^3.5.1",
         "eslint-plugin-import": "^2.19.1",
         "eslint-plugin-node": "^11.0.0",
         "eslint-plugin-nuxt": "latest",
@@ -78,13 +78,13 @@
         "eslint-plugin-vue": "^6.1.2",
         "get-port": "^5.1.0",
         "husky": "^4.0.1",
-        "jest": "latest",
-        "jsdom": "^15.2.1",
+        "jest": "^25.1.0",
+        "jsdom": "^16.0.1",
         "nuxt": "^2.10.2",
         "prettier": "latest",
         "prettier-eslint": "latest",
         "request": "latest",
         "request-promise-native": "latest",
-        "standard-version": "latest"
+        "standard-version": "^7.1.0"
     }
 }
