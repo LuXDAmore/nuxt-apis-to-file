@@ -13,6 +13,7 @@ const meta = [
 ];
 
 export default {
+    modern: true,
     rootDir: resolve(
         __dirname,
         '..',
