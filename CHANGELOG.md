@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/LuXDAmore/nuxt-apis-to-file/compare/v1.0.7...v1.1.0) (2020-04-21)
+
+
+### Features
+
+* modern ([e3ea2de](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/e3ea2de95a0cbe21e55825cb293a2679ae633788))
+
+
+### Bug Fixes
+
+* vscode ([707c81a](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/707c81a270b397816cc9fc51b1a0ea46f50afaec))
+
 ### [1.0.6](https://github.com/LuXDAmore/nuxt-apis-to-file/compare/v1.0.5...v1.0.6) (2020-03-19)
 
 ### [1.0.4](https://github.com/LuXDAmore/nuxt-apis-to-file/compare/v1.0.3...v1.0.4) (2020-03-05)
