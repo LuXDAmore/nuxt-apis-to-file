@@ -37,14 +37,14 @@
     "scripts": {
         "dev": "nuxt -o example",
         "build": "nuxt build example",
-        "pregenerate": "yarn build",
+        "pregenerate": "yarn test",
         "generate": "nuxt generate example",
         "eslint": "eslint --ext .js,.vue .",
         "eslint-fix": "eslint --fix --ext .js,.vue .",
         "lint": "yarn eslint",
         "lint-fix": "yarn eslint-fix",
         "test": "yarn lint && jest",
-        "release": "yarn test && yarn generate && standard-version && git push --follow-tags && yarn publish"
+        "release": "yarn generate && standard-version && git push --follow-tags && yarn publish"
     },
     "files": [
         "lib"
@@ -52,7 +52,7 @@
     "dependencies": {
         "axios": "^0.19.0",
         "consola": "^2.11.0",
-        "fs-extra": "9"
+        "fs-extra": "^9.0.0"
     },
     "devDependencies": {
         "@babel/core": "^7.7.7",
@@ -60,6 +60,7 @@
         "@commitlint/cli": "^8.3.4",
         "@commitlint/config-conventional": "^8.3.4",
         "@nuxtjs/eslint-config": "^2.0.2",
+        "@nuxtjs/module-test-utils": "latest",
         "@vue/eslint-config-prettier": "latest",
         "babel-eslint": "^10.1.0",
         "babel-jest": "^25.1.0",
@@ -74,17 +75,15 @@
         "eslint-plugin-prettier": "^3.1.2",
         "eslint-plugin-promise": "latest",
         "eslint-plugin-standard": "latest",
-        "eslint-plugin-unicorn": "^17.2.0",
+        "eslint-plugin-unicorn": "^18.0.1",
         "eslint-plugin-vue": "^6.1.2",
-        "get-port": "^5.1.0",
         "husky": "^4.0.1",
         "jest": "^25.1.0",
         "jsdom": "^16.0.1",
+        "markdownlint": "^0.20.1",
         "nuxt": "^2.10.2",
         "prettier": "latest",
         "prettier-eslint": "latest",
-        "request": "^2.88.2",
-        "request-promise-native": "latest",
         "standard-version": "^7.1.0"
     }
 }
