@@ -1,53 +1,37 @@
+import {
+    setup,
+    get,
+} from '@nuxtjs/module-test-utils';
+import { JSDOM } from 'jsdom';
+
+// Nuxt config
 import config from '../example/nuxt.config';
 
-import { Nuxt, Builder } from 'nuxt';
-import { JSDOM } from 'jsdom';
-import request from 'request-promise-native';
-import getPort from 'get-port';
+const BASE_URL = '/';
 
 config.dev = false;
-config.router.base = '/';
-
-jest.setTimeout(
-    60000
-);
-
-let nuxt
-    , port
-;
-
-const url = path => `http://localhost:${ port }${ path }`
-    , get = path => request(
-        url(
-            path
-        )
-    )
-;
+config.router.base = BASE_URL;
+config.server.host = 'localhost';
 
 describe(
-    'nuxt',
+    'module',
     () => {
+
+        let nuxt;
 
         beforeAll(
             async() => {
 
-                nuxt = new Nuxt(
-                    config
+                (
+                    { nuxt } = (
+                        await setup(
+                            config
+                        )
+                    )
                 );
 
-                await nuxt.ready();
-
-                await new Builder(
-                    nuxt
-                ).build();
-
-                port = await getPort();
-
-                await nuxt.listen(
-                    port
-                );
-
-            }
+            },
+            60000
         );
 
         afterAll(
@@ -63,13 +47,13 @@ describe(
             async() => {
 
                 const html = await get(
-                    '/'
+                    BASE_URL
                 );
 
                 expect(
                     html
                 ).toContain(
-                    'NUXT Apis to file'
+                    'Apis to file'
                 );
 
             }
@@ -85,7 +69,7 @@ describe(
                 ) => {
 
                     const html = await get(
-                            '/'
+                            BASE_URL
                         )
                         , { window } = new JSDOM(
                             html
