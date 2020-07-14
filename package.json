@@ -84,6 +84,6 @@
         "nuxt": "^2.10.2",
         "prettier": "latest",
         "prettier-eslint": "latest",
-        "standard-version": "^7.1.0"
+        "standard-version": "^8.0.1"
     }
 }
