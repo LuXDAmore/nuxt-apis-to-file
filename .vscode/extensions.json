@@ -4,6 +4,9 @@
     // List of extensions which should be recommended for users of this workspace.
     "recommendations": [
         "octref.vetur",
+        "tlahmann.alex-linter",
+        "mrmlnc.vscode-apache",
+        "mikestead.dotenv",
         "formulahendry.auto-close-tag",
         "formulahendry.auto-rename-tag",
         "kevinkyang.auto-comment-blocks",
