@@ -35,6 +35,7 @@
         "access": "public"
     },
     "scripts": {
+        "serve": "yarn dev",
         "dev": "nuxt -o example",
         "build": "nuxt build example",
         "pregenerate": "yarn test",
