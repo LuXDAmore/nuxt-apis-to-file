@@ -1,0 +1,7 @@
+{
+    "query": "query listLocations($nextToken: String!) {\n listLocations(nextToken: $nextToken) {\n items {\n name\n url\n children {\n name\n url\n }\n }\n nextToken\n }\n }",
+    "variables": {
+        "nextToken": ""
+    },
+    "operationName": "listLocations"
+}

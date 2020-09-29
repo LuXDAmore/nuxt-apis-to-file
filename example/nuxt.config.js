@@ -1,19 +1,59 @@
+// Common
 import { resolve } from 'path';
 import * as PACKAGE from '../package.json';
 
-import { GRAPHQL } from './graphql';
+// GraphQL RAW Queries
+import { GRAPHQL, LOCATIONS } from './graphql';
 
-const meta = [
-    {
-        once: true,
-        hid: 'description',
-        name: 'description',
-        content: PACKAGE.description,
+// Configuration
+const apisToFile = {
+    axios: {
+        baseURL: 'https://jsonplaceholder.typicode.com',
     },
-];
+    requests: [
+        {
+            endpoint: '/posts',
+            field: 'posts',
+        },
+        {
+            endpoint: '/comments',
+            field: 'comments',
+        },
+        // GraphQL
+        {
+            endpoint: 'https://countries.trevorblades.com/',
+            method: 'post',
+            field: 'graphql',
+            pathToData: 'data.country',
+            emptyValue: {},
+            body: GRAPHQL,
+        },
+        {
+            endpoint: 'https://kdonz3bavvbbhmocoletnw4w2q.appsync-api.eu-west-1.amazonaws.com/graphql',
+            method: 'post',
+            field: 'locations',
+            pathToData: 'data.listLocations',
+            config: {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': 'da2-jy2nym3ybbgubehdqhf5rjgbxq',
+                    'x-region': 'eu-west-1',
+                },
+            },
+            emptyValue: {},
+            body: LOCATIONS,
+            // New settings
+        },
+    ],
+};
 
+// NuxtJs
 export default {
+    // Plugin options
+    apisToFile,
+    // Other options
     modern: true,
+    srcDir: __dirname,
     rootDir: resolve(
         __dirname,
         '..',
@@ -28,37 +68,19 @@ export default {
             '../lib/module'
         ),
     ],
-    apisToFile: {
-        axios: {
-            baseURL: 'https://jsonplaceholder.typicode.com',
-        },
-        requests: [
-            {
-                endpoint: '/posts',
-                field: 'posts',
-            },
-            {
-                endpoint: '/comments',
-                field: 'comments',
-            },
-            // GraphQL
-            {
-                endpoint: 'https://countries.trevorblades.com/',
-                method: 'post',
-                field: 'graphql',
-                pathToData: 'data.country',
-                emptyValue: {},
-                body: GRAPHQL,
-            },
-        ],
-    },
-    srcDir: __dirname,
     head: {
         htmlAttrs: {
             lang: 'en',
         },
         title: PACKAGE.name,
-        meta,
+        meta: [
+            {
+                once: true,
+                hid: 'description',
+                name: 'description',
+                content: PACKAGE.description,
+            },
+        ],
     },
     /*
      * Router

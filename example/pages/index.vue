@@ -36,5 +36,47 @@
                 />
             </code>
         </section>
+        <section class="locations">
+            <h3>
+                <strong>Total number of locations preloaded:</strong>
+            </h3>
+            <p v-if="$store.state.locations && $store.state.locations.data">
+                <em
+                    v-if="$store.state.locations.data.items && $store.state.locations.data.items.length"
+                    class="number"
+                    v-text="$store.state.locations.data.items.length"
+                />
+                <em
+                    v-if="$store.state.locations.data.nextToken"
+                    class="number"
+                    v-text="$store.state.locations.data.nextToken"
+                />
+            </p>
+        </section>
+        <button type="button" @click="refresh">REFRESH</button>
     </main>
 </template>
+
+<script>
+    export default {
+        methods: {
+            async refresh() {
+
+                try {
+
+                    await this.$store.dispatch(
+                        'build-data/getDataFromFile',
+                    );
+
+                } catch( e ) {
+
+                    console.error(
+                        e
+                    );
+
+                }
+
+            },
+        },
+    };
+</script>

@@ -1,0 +1,13 @@
+query listLocations($next: String!) {
+	listLocations(nextToken: $next) {
+		items {
+			name
+			url
+			children {
+				name
+				url
+			}
+		}
+		nextToken
+	}
+}

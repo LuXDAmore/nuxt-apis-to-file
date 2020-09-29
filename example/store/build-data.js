@@ -13,7 +13,8 @@ export const actions = {
 
         let preloadedComments = []
             , preloadedPosts = []
-            , preloadedGraphQl = []
+            , preloadedGraphQl = {}
+            , preloadedLocations = {}
         ;
 
         try {
@@ -22,6 +23,7 @@ export const actions = {
                 comments,
                 posts,
                 graphql,
+                locations,
             } = await getFile();
 
             if( comments )
@@ -30,6 +32,8 @@ export const actions = {
                 preloadedPosts = posts;
             if( graphql )
                 preloadedGraphQl = graphql;
+            if( preloadedLocations )
+                preloadedLocations = locations;
 
         } catch( e ) {
 
@@ -52,6 +56,14 @@ export const actions = {
         commit(
             'posts/SET_ITEMS',
             preloadedPosts,
+            {
+                root: true,
+            }
+        );
+
+        commit(
+            'locations/SET_ITEMS',
+            preloadedLocations,
             {
                 root: true,
             }
