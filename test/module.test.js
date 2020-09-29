@@ -1,7 +1,10 @@
+// Test utils
 import {
     setup,
     get,
 } from '@nuxtjs/module-test-utils';
+
+// Dom
 import { JSDOM } from 'jsdom';
 
 // Nuxt config
@@ -11,8 +14,8 @@ const BASE_URL = '/';
 
 config.dev = false;
 config.router.base = BASE_URL;
-config.server.host = 'localhost';
 
+// Tests
 describe(
     'module',
     () => {
@@ -31,7 +34,7 @@ describe(
                 );
 
             },
-            60000
+            90000
         );
 
         afterAll(
@@ -73,7 +76,7 @@ describe(
                         )
                         , { window } = new JSDOM(
                             html
-                        ).window
+                        )
                         , element = window.document.querySelector(
                             selector
                         )
@@ -118,7 +121,7 @@ describe(
                 );
 
                 test(
-                    'comments',
+                    'posts',
                     async() => {
 
                         await getElement(
@@ -130,12 +133,17 @@ describe(
                 );
 
                 test(
-                    'users',
+                    'graphql',
                     async() => {
 
-                        await getElement(
-                            '.users',
-                            10,
+                        const html = await get(
+                            BASE_URL
+                        );
+
+                        expect(
+                            html
+                        ).toContain(
+                            'Italy'
                         );
 
                     }

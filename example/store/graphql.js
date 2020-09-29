@@ -1,18 +1,16 @@
 export const state = () => (
     {
-        items: [],
+        data: {},
     }
 );
 
 export const mutations = {
     SET_ITEMS(
         state,
-        items,
+        value,
     ) {
 
-        state.items = Object.freeze(
-            items,
-        );
+        state.data = value;
 
     },
 };

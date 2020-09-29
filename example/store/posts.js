@@ -10,9 +10,7 @@ export const mutations = {
         items,
     ) {
 
-        state.items = Object.freeze(
-            items,
-        );
+        state.items = items;
 
     },
 };

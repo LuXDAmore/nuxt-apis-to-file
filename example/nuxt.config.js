@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import * as PACKAGE from '../package.json';
 
-import { USERS } from './graphql';
+import { GRAPHQL } from './graphql';
 
 const meta = [
     {
@@ -43,11 +43,12 @@ export default {
             },
             // GraphQL
             {
-                endpoint: 'https://api.graph.cool/simple/v1/ciyz901en4j590185wkmexyex',
+                endpoint: 'https://countries.trevorblades.com/',
                 method: 'post',
-                field: 'users',
-                pathToData: 'data.allUsers',
-                body: USERS,
+                field: 'graphql',
+                pathToData: 'data.country',
+                emptyValue: {},
+                body: GRAPHQL,
             },
         ],
     },

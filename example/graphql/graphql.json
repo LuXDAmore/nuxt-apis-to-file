@@ -1,0 +1,7 @@
+{
+    "query": "query country($code: ID!) {\n country(code: $code) {\n name\n native\n capital\n emoji\n currency\n languages {\n code\n name\n }\n }\n }",
+    "variables": {
+        "code": "IT"
+    },
+    "operationName": "country"
+}
