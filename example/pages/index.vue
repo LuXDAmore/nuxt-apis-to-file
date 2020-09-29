@@ -7,29 +7,34 @@
             <h3>
                 <strong>Total number of comments preloaded:</strong>
             </h3>
-            <p>
-                <em class="number" v-text="$store.state.comments.items.length" />
+            <p v-if="$store.state.comments && $store.state.comments.items && $store.state.comments.items.length">
+                <em
+                    class="number"
+                    v-text="$store.state.comments.items.length"
+                />
             </p>
         </section>
         <section class="posts">
             <h3>
                 <strong>Total number of posts preloaded:</strong>
             </h3>
-            <p>
-                <em class="number" v-text="$store.state.posts.items.length" />
+            <p v-if="$store.state.posts && $store.state.posts.items && $store.state.posts.items.length">
+                <em
+                    class="number"
+                    v-text="$store.state.posts.items.length"
+                />
             </p>
         </section>
-        <section class="users">
+        <section class="graphql">
             <h3>
-                <strong>Total number of users preloaded:</strong>
+                <strong>Total number graphql data preloaded:</strong>
             </h3>
-            <p>
-                <em class="number" v-text="$store.state.users.items.length" />
-            </p>
+            <code v-if="$store.state.graphql && $store.state.graphql.data">
+                <pre
+                    class="number"
+                    v-text="$store.state.graphql.data"
+                />
+            </code>
         </section>
     </main>
 </template>
-
-<script>
-    export default {};
-</script>

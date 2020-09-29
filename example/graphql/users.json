@@ -1,7 +1,0 @@
-{
-    "query": "query allUsers($first: Int) {\n allUsers(first: $first) {\n id\n name\n createdAt\n email\n comments {\n id\n text\n }\n posts {\n id\n title\n }\n }\n }",
-    "variables": {
-        "first": 10
-    },
-    "operationName": "allUsers"
-}

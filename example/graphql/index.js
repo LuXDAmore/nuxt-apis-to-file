@@ -1,3 +1,3 @@
-import * as USERS from './users.json';
+import * as GRAPHQL from './graphql.json';
 
-export { USERS };
+export { GRAPHQL };
