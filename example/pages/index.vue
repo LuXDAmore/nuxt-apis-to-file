@@ -89,7 +89,14 @@
                 />
             </p>
         </section>
-        <button type="button" @click="refresh">REFRESH</button>
+        <button
+            type="button"
+            title="Refresh"
+            @click="refresh"
+            @keyup.enter="refresh"
+        >
+            REFRESH
+        </button>
     </main>
 </template>
 
