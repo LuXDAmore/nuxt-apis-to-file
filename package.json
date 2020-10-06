@@ -53,6 +53,7 @@
     "dependencies": {
         "axios": "^0.20.0",
         "consola": "^2.15.0",
+        "dot-object": "^2.1.4",
         "fs-extra": "^9.0.1"
     },
     "devDependencies": {
