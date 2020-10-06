@@ -77,7 +77,7 @@
         "eslint-plugin-promise": "latest",
         "eslint-plugin-standard": "latest",
         "eslint-plugin-unicorn": "^22.0.0",
-        "eslint-plugin-vue": "^6.1.2",
+        "eslint-plugin-vue": "^7.0.1",
         "husky": "^4.3.0",
         "jest": "^26.4.2",
         "jsdom": "^16.4.0",
