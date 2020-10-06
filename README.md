@@ -110,13 +110,13 @@ ___
                     config: {},
                     // New, available after with version >= 1.2
                     id: -1, // useful for debugging purpose, default = `the actual index in this array of requests + 1`
-                    // For recursive api calls with lists or nested data
+                    // For RECURSIVE api request with lists or nested data, N.B. : RECURSIVE, keep attention
                     pagination: {
-                        pathBodyToPaginationParamValue: 'variables.nextToken', // [REQUIRED]
+                        pathBodyToPaginationParamValue: 'variables.nextToken', // [REQUIRED], witch params should update to match the next page? It depends on how you manage the pagination from the BE
                         pathResponseToTheNextPaginationValue: 'data.categories.listCategories.nextToken', // useful with Graphql, default = null
                         step: 1, // It always start with the `pathBodyToPaginationParamValue` param if specified, so this is used to increase this numeric value
-                        maxIterations: 15, // Max deep of iterations
-                        lastPaginationValue: null // stop the recursion if 'pathResponseToTheNextPaginationValue' or 'pathBodyToPaginationParamValue' is this value, and is useful to stop the Iteration if the next value is matched
+                        maxIterations: 15, // Max iterations
+                        lastPaginationValue: null // useful with Graphql, stop the next Iteration if 'pathResponseToTheNextPaginationValue' or 'pathBodyToPaginationParamValue' match this value
                     },
                 },
             ],
