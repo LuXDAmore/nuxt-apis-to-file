@@ -1,6 +1,7 @@
 export const state = () => (
     {
         data: {},
+        paginated: [],
     }
 );
 
@@ -11,6 +12,14 @@ export const mutations = {
     ) {
 
         state.data = value;
+
+    },
+    SET_ITEMS_PAGINATED(
+        state,
+        items,
+    ) {
+
+        state.paginated = items;
 
     },
 };

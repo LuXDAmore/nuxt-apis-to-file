@@ -11,29 +11,42 @@ export const actions = {
         { commit }
     ) {
 
-        let preloadedComments = []
-            , preloadedPosts = []
+        let preloadedPosts = []
+            , preloadedCommentsPaginated = []
+            , preloadedComments = []
+            , preloadedPostsPaginated = []
             , preloadedGraphQl = {}
             , preloadedLocations = {}
+            , preloadedLocationsPaginated = []
         ;
 
         try {
 
             const {
-                comments,
                 posts,
+                postsPaginated,
+                comments,
+                commentsPaginated,
                 graphql,
-                locations,
+                graphqlLocations,
+                graphqlLocationsPaginated,
             } = await getFile();
 
-            if( comments )
-                preloadedComments = comments;
             if( posts )
                 preloadedPosts = posts;
+            if( postsPaginated )
+                preloadedPostsPaginated = postsPaginated;
+            if( comments )
+                preloadedComments = comments;
+            if( commentsPaginated )
+                preloadedCommentsPaginated = commentsPaginated;
+
             if( graphql )
                 preloadedGraphQl = graphql;
-            if( preloadedLocations )
-                preloadedLocations = locations;
+            if( graphqlLocations )
+                preloadedLocations = graphqlLocations;
+            if( graphqlLocationsPaginated )
+                preloadedLocationsPaginated = graphqlLocationsPaginated;
 
         } catch( e ) {
 
@@ -45,6 +58,23 @@ export const actions = {
 
         }
 
+
+        commit(
+            'posts/SET_ITEMS',
+            preloadedPosts,
+            {
+                root: true,
+            }
+        );
+
+        commit(
+            'posts/SET_ITEMS_PAGINATED',
+            preloadedPostsPaginated,
+            {
+                root: true,
+            }
+        );
+
         commit(
             'comments/SET_ITEMS',
             preloadedComments,
@@ -54,8 +84,16 @@ export const actions = {
         );
 
         commit(
-            'posts/SET_ITEMS',
-            preloadedPosts,
+            'comments/SET_ITEMS_PAGINATED',
+            preloadedCommentsPaginated,
+            {
+                root: true,
+            }
+        );
+
+        commit(
+            'graphql/SET_ITEMS',
+            preloadedGraphQl,
             {
                 root: true,
             }
@@ -70,8 +108,8 @@ export const actions = {
         );
 
         commit(
-            'graphql/SET_ITEMS',
-            preloadedGraphQl,
+            'locations/SET_ITEMS_PAGINATED',
+            preloadedLocationsPaginated,
             {
                 root: true,
             }
