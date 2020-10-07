@@ -167,6 +167,14 @@ export default {
                 name: 'description',
                 content: PACKAGE.description,
             },
+            {
+                once: true,
+                hid: 'keywords',
+                name: 'keywords',
+                content: PACKAGE.keywords.join(
+                    ','
+                ),
+            },
         ],
     },
     /*
