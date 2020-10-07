@@ -62,51 +62,66 @@ describe(
             }
         );
 
+        // Utils
+        const getElement = async(
+            selector,
+            value
+        ) => {
+
+            const html = await get(
+                    BASE_URL
+                )
+                , { window } = new JSDOM(
+                    html
+                )
+                , element = window.document.querySelector(
+                    selector
+                )
+                , number = element.querySelector(
+                    '.number'
+                )
+                , numberValue = number.textContent
+            ;
+
+            expect(
+                element
+            ).toBeDefined();
+
+            expect(
+                number
+            ).toBeDefined();
+
+            expect(
+                numberValue
+            ).toBeDefined();
+
+            expect(
+                parseInt(
+                    numberValue
+                )
+            ).toEqual(
+                value
+            );
+
+        };
+
+        // Rest API
         describe(
-            'data',
+            'rest-api',
             () => {
 
-                const getElement = async(
-                    selector,
-                    value
-                ) => {
+                // Posts and comments
+                test(
+                    'posts',
+                    async() => {
 
-                    const html = await get(
-                            BASE_URL
-                        )
-                        , { window } = new JSDOM(
-                            html
-                        )
-                        , element = window.document.querySelector(
-                            selector
-                        )
-                        , number = element.querySelector(
-                            '.number'
-                        )
-                        , numberValue = number.textContent
-                    ;
+                        await getElement(
+                            '.posts',
+                            10,
+                        );
 
-                    expect(
-                        element
-                    ).toBeDefined();
-
-                    expect(
-                        number
-                    ).toBeDefined();
-
-                    expect(
-                        numberValue
-                    ).toBeDefined();
-
-                    expect(
-                        parseInt(
-                            numberValue
-                        )
-                    ).toEqual(
-                        value
-                    );
-
-                };
+                    }
+                );
 
                 test(
                     'comments',
@@ -114,26 +129,54 @@ describe(
 
                         await getElement(
                             '.comments',
-                            500,
+                            10,
                         );
 
                     }
                 );
 
-                test(
-                    'posts',
-                    async() => {
+                // paginated
+                describe(
+                    'paginated',
+                    () => {
 
-                        await getElement(
-                            '.posts',
-                            100,
+                        test(
+                            'posts',
+                            async() => {
+
+                                await getElement(
+                                    '.posts-paginated',
+                                    30,
+                                );
+
+                            }
+                        );
+
+                        test(
+                            'comments',
+                            async() => {
+
+                                await getElement(
+                                    '.comments-paginated',
+                                    45,
+                                );
+
+                            }
                         );
 
                     }
                 );
 
+            }
+        );
+
+        // GraphQL
+        describe(
+            'graphql',
+            () => {
+
                 test(
-                    'graphql',
+                    'render',
                     async() => {
 
                         const html = await get(
@@ -144,6 +187,37 @@ describe(
                             html
                         ).toContain(
                             'Italy'
+                        );
+
+                    }
+                );
+
+                test(
+                    'locations',
+                    async() => {
+
+                        await getElement(
+                            '.locations',
+                            11,
+                        );
+
+                    }
+                );
+
+                describe(
+                    'paginated',
+                    () => {
+
+                        test(
+                            'locations',
+                            async() => {
+
+                                await getElement(
+                                    '.locations-paginated',
+                                    20,
+                                );
+
+                            }
                         );
 
                     }

@@ -1,0 +1,30 @@
+.page h3,
+.page p {
+
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+.page h3 {
+
+    margin-top: 16px;
+
+}
+
+.page em {
+
+    display: block;
+
+}
+
+.page button {
+
+    margin: 32px;
+
+}

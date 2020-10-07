@@ -95,6 +95,7 @@ ___
             requests: [
                 // Every request is passed to an `axios.create` instance
                 {
+                    skip: false, // skip a request
                     endpoint: 'https://awesome-api.com/give-me-my-blazing-fast-data', // default = `axios.url`
                     method: 'get', // default = `axios.method || 'get'`
                     // The params of the request, you can pass a graph-ql query too, check it in the example folder
@@ -102,11 +103,21 @@ ___
                     // Use this to map the response in a custom `key`
                     field: 'categories', // default = `the actual index in this array of requests`
                     // Usually, your data is always nested in one or more objects
-                    pathToData: 'data.categories.listCategories',
+                    pathToData: 'data.categories.listCategories.items', // Check `dot-object` to know more
                     // In case of no-response, what value do you prefer for your empty data?
                     emptyValue: [],
                     // Like headers, authentication or everything is required by this request
                     config: {},
+                    // New, available after with version >= 1.2
+                    id: -1, // useful for debugging purpose, default = `the actual index in this array of requests + 1`
+                    // For RECURSIVE api request with lists or nested data, N.B. : RECURSIVE, keep attention
+                    pagination: {
+                        pathBodyToPaginationParamValue: 'variables.nextToken', // [REQUIRED], witch params should update to match the next page? It depends on how you manage the pagination from the BE
+                        pathResponseToTheNextPaginationValue: 'data.categories.listCategories.nextToken', // useful with Graphql, default = null
+                        step: 1, // It always start with the `pathBodyToPaginationParamValue` param if specified, so this is used to increase this numeric value
+                        maxIterations: 15, // Max iterations
+                        lastPaginationValue: null // useful with Graphql, stop the next Iteration if 'pathResponseToTheNextPaginationValue' or 'pathBodyToPaginationParamValue' match this value
+                    },
                 },
             ],
         },
@@ -149,8 +160,7 @@ ___
                 'news/getNewsCategories',  // TTFB + ~250ms 😱
             );
 
-
-            // with apis-to-json
+            // with the-fastest-new-way of apis-to-json
             await dispatch(
                 'build-data/getDataFromFile', // TTFB .. Guess 🤭
             );
@@ -224,6 +234,7 @@ ___
 - Nuxt [staticDir](https://nuxtjs.org/api/configuration-dir/);
 - Nuxt [buildModules](https://nuxtjs.org/guide/modules/#build-only-modules);
 - [fs-extra.outputJson](https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputJson.md);
+- `pathTo` data handled with [dot-notation](https://github.com/rhalff/dot-object);
 - [Axios.create](https://github.com/axios/axios#creating-an-instance);
 - [@nuxtjs/axios](https://axios.nuxtjs.org/).
 

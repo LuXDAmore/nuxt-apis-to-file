@@ -348,6 +348,9 @@ module.exports = {
                     try: {
                         after: true,
                     },
+                    finally: {
+                        after: true,
+                    },
                     catch: {
                         before: true,
                         after: false,
