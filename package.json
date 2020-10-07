@@ -45,7 +45,7 @@
         "lint": "yarn eslint",
         "lint-fix": "yarn eslint-fix",
         "test": "yarn lint && jest",
-        "release": "yarn generate && standard-version && git push --follow-tags && yarn publish"
+        "release": "yarn test && yarn generate && standard-version && git push --follow-tags && yarn publish"
     },
     "files": [
         "lib"
