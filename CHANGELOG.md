@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/LuXDAmore/nuxt-apis-to-file/compare/v1.1.0...v1.2.0) (2020-10-07)
+
+
+### Features
+
+* dot-object ([56da64e](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/56da64e0a015cce9d94c908502d7cb1c67070a10))
+* pagination with recursive api ([239d9d7](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/239d9d7f825b501a083d3cfae0e231fe91a7b899))
+
+
+### Bug Fixes
+
+* accessibilty issue ([54e9eaf](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/54e9eaf3e1cacf999d481d90cbb18b5f601e77fc))
+* data after try ([9676472](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/967647262b0c99e6876ae699911377c40abfcb30))
+* missing data after try-fnally ([9f905f5](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/9f905f5893322cbb84187b6c7cdb9caf5df9baee))
+* more try-catch patterns ([0865fce](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/0865fce5c4efd22d8a6e6c3f6745410df9281f7a))
+* tests ([c6f75e0](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/c6f75e01abe1e667ac2313cb11108b0882c738f4))
+* travis node version ([fb9395b](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/fb9395b7196172b0c7457f1bf9d6b443b040e249))
+* typo error ([0547b37](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/0547b3700298e4eba5d07f41a4283b5aaae192aa))
+
 ## [1.1.0](https://github.com/LuXDAmore/nuxt-apis-to-file/compare/v1.0.7...v1.1.0) (2020-04-21)
 
 
