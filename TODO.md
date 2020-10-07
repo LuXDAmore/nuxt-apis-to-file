@@ -1,6 +1,6 @@
 # TODO
 
-> Just asking myself if i should do more.
+> I'm asking myself if i should do more.
 
 - Add more tests;
 - Rename `dir` in `file`?
