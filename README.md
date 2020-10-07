@@ -108,7 +108,7 @@ ___
                     emptyValue: [],
                     // Like headers, authentication or everything is required by this request
                     config: {},
-                    // New, available after with version >= 1.2
+                    // New, available with version >= 1.2
                     id: -1, // useful for debugging purpose, default = `the actual index in this array of requests + 1`
                     // For RECURSIVE api request with lists or nested data, N.B. : RECURSIVE, keep attention
                     pagination: {
