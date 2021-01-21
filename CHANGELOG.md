@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.4](https://github.com/LuXDAmore/nuxt-apis-to-file/compare/v1.2.3...v1.2.4) (2021-01-21)
+
+
+### Bug Fixes
+
+* broken tests due to a change to locations api ([82c9132](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/82c91321df97f9791a6b69380ad2ac5d3a39f0fa))
+* keywords for github pages ([105d596](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/105d5967754cb4895fe6f00f97278392a53026d9))
+* nuxt generate static config ([c6ccf50](https://github.com/LuXDAmore/nuxt-apis-to-file/commit/c6ccf50bf7d7c91b348d485787fecdb9639f3cf0))
+
 ### [1.2.2](https://github.com/LuXDAmore/nuxt-apis-to-file/compare/v1.2.1...v1.2.2) (2020-10-07)
 
 ## [1.2.0](https://github.com/LuXDAmore/nuxt-apis-to-file/compare/v1.1.0...v1.2.0) (2020-10-07)
