@@ -198,7 +198,7 @@ describe(
 
                         await getElement(
                             '.locations',
-                            11,
+                            9,
                         );
 
                     }
