@@ -116,6 +116,7 @@ export default {
     // Plugin options
     apisToFile,
     // Options
+    target: 'static',
     modern: true,
     srcDir: __dirname,
     rootDir: resolve(
