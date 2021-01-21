@@ -1,6 +1,6 @@
 {
     "name": "@luxdamore/nuxt-apis-to-file",
-    "version": "1.2.5",
+    "version": "1.2.6",
     "description": "Nuxt module to merge and transform multiple API + GraphQL requests into a single one, like a payload extractor",
     "author": "Luca Iaconelli <lucabelli@msn.com> (https://lucaiaconelli.it)",
     "license": "MIT",
