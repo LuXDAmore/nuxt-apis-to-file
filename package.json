@@ -79,7 +79,7 @@
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-promise": "latest",
         "eslint-plugin-standard": "^5.0.0",
-        "eslint-plugin-unicorn": "^26.0.1",
+        "eslint-plugin-unicorn": "^29.0.0",
         "eslint-plugin-vue": "^7.0.1",
         "husky": "^4.3.0",
         "jest": "^26.4.2",
