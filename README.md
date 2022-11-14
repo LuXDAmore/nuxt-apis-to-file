@@ -25,7 +25,7 @@
 [paypal-donate-src]: https://img.shields.io/badge/paypal-donate-black.svg?style=flat
 [paypal-donate-href]: https://www.paypal.me/luxdamore
 
-> Nuxt module to merge and transform multiple API + GraphQL requests into a single one, like a `payload extractor`.
+> Nuxt module to merge and transform multiple API + GraphQL requests into a single one, during build-time, like a `payload extractor`.
 
 ## 💘 Motivation
 
